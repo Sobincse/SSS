@@ -1,0 +1,20 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Check Python program
+        run: python -m py_compile app.py
+
+      - name: Run program
+        run: python app.py
